@@ -1,4 +1,4 @@
-package com.calender.shapeableimageview
+package com.calender.waqar_shapable_images
 
 import android.content.Context
 import android.graphics.*
@@ -8,7 +8,7 @@ import androidx.core.content.ContextCompat
 import com.bumptech.glide.load.engine.bitmap_recycle.BitmapPool
 import jp.wasabeef.glide.transformations.MaskTransformation
 
-class CustomMaskTransformation(private val maskId: Int) : MaskTransformation(maskId) {
+class CustomMaskTransformation(private val maskId: Int ,private var xFer: String) : MaskTransformation(maskId) {
     private val paint = Paint()
 
     override fun transform(
@@ -39,8 +39,7 @@ class CustomMaskTransformation(private val maskId: Int) : MaskTransformation(mas
         mask?.setBounds(0, 0, w, h)
         mask?.draw(canvas)
 
-        // Assuming MainActivity.xFer is a valid PorterDuff mode
-        when (MainActivity.xFer) {
+        when (xFer) {
             "IN" -> paint.xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_IN)
             "OUT" -> paint.xfermode = PorterDuffXfermode(PorterDuff.Mode.SRC_OUT)
         }

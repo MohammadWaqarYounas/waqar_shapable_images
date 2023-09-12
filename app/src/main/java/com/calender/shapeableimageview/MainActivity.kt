@@ -8,6 +8,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 import com.calender.shapeableimageview.databinding.ActivityMainBinding
+import com.calender.waqar_shapable_images.CustomMaskTransformation
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,38 +21,36 @@ class MainActivity : AppCompatActivity() {
         binding= ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        changeImage()
+        changeImage(xFer)
 
         binding.btnCircle.setOnClickListener {
             drawable=R.drawable.ic_circle
-            changeImage()
+            changeImage(xFer)
         }
         binding.btnHeart.setOnClickListener {
             drawable=R.drawable.ic_heart
-            changeImage()
+            changeImage(xFer)
         }
         binding.btnStar.setOnClickListener {
             drawable=R.drawable.ic_star
-            changeImage()
+            changeImage(xFer)
         }
         binding.btnIn.setOnClickListener {
             xFer="IN"
-            changeImage()
+            changeImage(xFer)
         }
         binding.btnOut.setOnClickListener {
             xFer="OUT"
-            changeImage()
+            changeImage(xFer)
         }
 
     }
 
-
-
-    fun changeImage() {
+    fun changeImage(xFer: String) {
         Glide.with(this)
             .load(R.drawable.ic_launcher_background)
             .apply(
-                RequestOptions.bitmapTransform(CustomMaskTransformation(drawable))
+                RequestOptions.bitmapTransform(CustomMaskTransformation(drawable,xFer))
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
                     .skipMemoryCache(true)
             )
