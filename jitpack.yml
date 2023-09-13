@@ -1,0 +1,7 @@
+jdk:
+  -openjdk20
+before_install:
+  - ./scripts/prepareJitpackEnvironment.sh
+install:
+  - FILE="-Dfile=waqar_shapable_images-release.aar"
+  - mvn install:install-file $FILE -DgroupId=com.github.MohammadWaqarYounas -DartifactId=waqar_shapable_images -Dversion=1.0.0 -Dpackaging=aar -DgeneratePom=true
