@@ -17,23 +17,23 @@ In this library you can add any image into any kind of shapes as per your prefre
 
 #### Add it in your root build.gradle at the end of repositories:
 
-```http
+
   	allprojects {
 		repositories {
 			...
 			maven { url 'https://jitpack.io' }
 		}
 	}
-```
+
 
 #### Add the dependency in your build.gradle
 
-```http
-  dependencies {
+
+  	dependencies {
             implementation 'jp.wasabeef:glide-transformations:4.3.0'
 	        implementation 'com.github.MohammadWaqarYounas:waqar_shapable_images:$Version'
 	}
-```
+
 #### Parameters Required:
 
 | Parameter | Type     | Description                       |
@@ -45,14 +45,14 @@ In this library you can add any image into any kind of shapes as per your prefre
 
 #### How To Use:
 
-```http
-  Glide.with(context)
-    .load(you_image_url/Drawable)
-        .apply(RequestOptions
+
+  	Glide.with(context)
+    	.load(you_image_url/Drawable)
+        	.apply(RequestOptions
             .bitmapTransform(CustomMaskTransformation(your_shape_in_Drawable,"IN"))
                 .diskCacheStrategy(DiskCacheStrategy.NONE)
                     .skipMemoryCache(true)).into(imageView)
-```
+
 
 
 #### Process:
