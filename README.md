@@ -1,5 +1,3 @@
-# waqar_shapable_images
-
 # Custom Shapeable Images
 
 In this library you can add any image into any kind of shapes as per your prefrences. It provides your to add images inside of the shape as well as outside of the shape.
